@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>calculator</title>
+<script src="https://kit.fontawesome.com/756be346c4.js" crossorigin="anonymous"></script>
+<style>
+.container{
+text-align:center;
+margin-top:80px;}
+
+table{margin:auto;}
+
+input{font-size:25px;
+box-shadow:0px 2px 3px grey;
+border-radius:10px;
+height:65px;
+background:#F0FFF0;}
+
+button{
+cursor:pointer;
+border-radius:10px;
+font-size:23px;
+background:#696969;
+color:white;
+width:75px;
+height:45px;}
+
+.maincal{background:#4682B4;
+border:7px solid #4682B4;
+border-radius:10px;
+display:inline-block;}
+
+h3{
+float:right;
+font-family:Arial;
+color:white;
+margin-right:12px;
+font-size:18px;
+font-weight:bold;
+}
+#delkey{color:black;
+background:salmon;}
+
+#equalkey{ background:#00BFFF;}
+}
+
+.caltable{
+margin-top:4px;
+}
+
+input{margin-top:-7px}
+#cbutton{
+background:white;
+color:red;}
+button:hover{background:#7cfc00}
+</style>
+<script>
+function number(num){
+var result=document.getElementById("screen");
+result.value+=num;
+}
+function clearr()
+{
+ var result=document.getElementById("screen");
+ result.value = "";
+}
+function getres()
+{
+ var result=document.getElementById("screen");
+ result.value=eval(result.value);
+}
+function delone()
+{
+var number=document.getElementById("screen");
+var remove=number.value;
+remove=remove.slice(0,-1);
+number.value=remove;
+}
+
+</script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="maincal">
+<h3 style="margin-right:75px">Casio Calculator</h3>
+<br>
+<input type="text" name="screen" id="screen" >
+<div class="caltable">
+<table>
+<tr>
+<td><button id="cbutton" onclick="clearr()">C</button></td>
+<td><button onclick="number('(')">(</button></td>
+<td><button onclick="number(')')">)</button></td>
+<td><button id="delkey" onclick="delone()"><i class="fas fa-backspace"></i></button></td>
+</tr>
+<tr>
+<td><button onclick="number('7')">7</button></td>
+<td><button onclick="number('8')">8</button></td>
+<td><button onclick="number('9')">9</button></td>
+<td><button onclick="number('*')">x</button></td>
+</tr>
+<tr>
+<td><button onclick="number('4')">4</button></td>
+<td><button onclick="number('5')">5</button></td>
+<td><button onclick="number('6')">6</button></td>
+<td><button onclick="number('+')">+</button></td>
+</tr>
+<tr>
+<td><button onclick="number('1')">1</button></td>
+<td><button onclick="number('2')">2</button></td>
+<td><button onclick="number('3')">3</button></td>
+<td><button onclick="number('-')">-</button></td>
+</tr>
+<tr>
+<td><button onclick="number('0')">0</button></td>
+<td><button onclick="number('.')">.</button></td>
+<td><button onclick="number('/')">/</button></td>
+<td><button id="equalkey" onclick="getres()">=</button></td>
+</tr>
+</table>
+</div>
+</div>
+</div> 
+
+</body>
+</html>
